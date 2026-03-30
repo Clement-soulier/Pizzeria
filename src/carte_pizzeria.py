@@ -1,4 +1,4 @@
-from carte_pizzeria_exception import CartePizzeriaException
+from src.carte_pizzeria_exception import CartePizzeriaException
 
 
 class CartePizzeria:

@@ -25,4 +25,4 @@ jobs:
 
       - name: Lancement des tests avec couverture
         run: |
-          pytest --cov=src --cov-report=term --cov-fail-under=80
+          PYTHONPATH=. pytest --cov=src --cov-report=term --cov-fail-under=80

@@ -5,7 +5,7 @@ from src.pizza import Pizza
 
 class TestCartePizzeria(unittest.TestCase):
     def test_carte_vide(self):
-        carte_pizerria = CartePizzeria()
+        carte_pizerria = CartePizzeria([])
 
         self.assertTrue(carte_pizerria.is_empty())
 
@@ -18,7 +18,7 @@ class TestCartePizzeria(unittest.TestCase):
         self.assertEqual(carte_pizerria.nb_pizzas(), 3)
 
     def test_ajout_pizza(self):
-        carte_pizerria = CartePizzeria()
+        carte_pizerria = CartePizzeria([])
         pizza = Pizza("margarita", ["sauce tomate", "mozarella"], 10)
         carte_pizerria.add_pizza(pizza)
 
@@ -32,3 +32,7 @@ class TestCartePizzeria(unittest.TestCase):
         carte_pizerria.remove_pizza("reine")
 
         self.assertEqual(carte_pizerria.nb_pizzas(), 2)
+
+
+if __name__ == "__main__":
+    unittest.main()
