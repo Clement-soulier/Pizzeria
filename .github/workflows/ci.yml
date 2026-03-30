@@ -21,7 +21,11 @@ jobs:
       - name: Installation des dépendances
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pytest-cov
+          pip install pytest pytest-cov flake8
+
+      - name: Lint avec flake8
+        run: |
+          flake8 src tests
 
       - name: Lancement des tests avec couverture
         run: |
