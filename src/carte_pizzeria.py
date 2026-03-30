@@ -3,7 +3,10 @@ from carte_pizzeria_exception import CartePizzeriaException
 
 class CartePizzeria:
     def __init__(self, pizzas):
-        self.pizzas = pizzas
+        if pizzas:
+            self.pizzas = pizzas
+        else:
+            self.pizzas = []
 
     def is_empty(self):
         if (len(self.pizzas) == 0):
