@@ -1,28 +1,50 @@
 from src.carte_pizzeria_exception import CartePizzeriaException
+from src.pizza import Pizza
+from src.dessert import Dessert
 
 
 class CartePizzeria:
-    def __init__(self, pizzas):
-        if pizzas:
-            self.pizzas = pizzas
+    def __init__(self, elements):
+        if elements:
+            self.elements = elements
         else:
-            self.pizzas = []
+            self.elements = []
 
     def is_empty(self):
-        if (len(self.pizzas) == 0):
+        if (len(self.elements) == 0):
             return True
         else:
             return False
 
-    def nb_pizzas(self):
-        return len(self.pizzas)
+    def nb_drinks(self):
+        count = 0
+        for element in self.elements:
+            if (isinstance(element, Pizza)):
+                count += 1
+        return count
 
-    def add_pizza(self, pizza):
-        self.pizzas.append(pizza)
+    def nb_desserts(self):
+        count = 0
+        for element in self.elements:
+            if (isinstance(element, Dessert)):
+                count += 1
+        return count
 
-    def remove_pizza(self, name):
-        for pizza in self.pizzas:
-            if pizza.name == name:
-                self.pizzas.remove(pizza)
+    def nb_elements(self):
+        return len(self.elements)
+
+    def add(self, element):
+        for i in range(len(self.elements)):
+            if (self.elements[i].name == element.name):
+                raise CartePizzeriaException
+            if (self.elements[i].base == element.base and element.ingredients == self.elements):
+                raise CartePizzeriaException
+        else:
+            self.elements.append(element)
+
+    def remove(self, name):
+        for element in self.elements:
+            if element.name == name:
+                self.elements.remove(element)
                 return
         raise CartePizzeriaException
