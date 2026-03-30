@@ -1,6 +1,7 @@
 from src.carte_pizzeria_exception import CartePizzeriaException
 from src.pizza import Pizza
 from src.dessert import Dessert
+from src.boisson import Boisson
 
 
 class CartePizzeria:
@@ -19,7 +20,7 @@ class CartePizzeria:
     def nb_drinks(self):
         count = 0
         for element in self.elements:
-            if (isinstance(element, Pizza)):
+            if (isinstance(element, Boisson)):
                 count += 1
         return count
 
@@ -27,6 +28,13 @@ class CartePizzeria:
         count = 0
         for element in self.elements:
             if (isinstance(element, Dessert)):
+                count += 1
+        return count
+
+    def nb_pizza(self):
+        count = 0
+        for element in self.elements:
+            if (isinstance(element, Pizza)):
                 count += 1
         return count
 
